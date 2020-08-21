@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <title>Fake News Detector</title>
+    <style>
+        body,h1 {font-family: "Raleway", sans-serif}
+        body, html {height: 100%}
+        body {
+            background-image: url('/static/trump.jpeg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: contain;
+            background-color: slategrey;
+        }
+    </style>
+</head>
+<body>
+
+<div class="w3-display-topmiddle w3-text-white">
+    <h1 class="w3-jumbo w3-animate-top">Fake News Detector</h1>
+    <div class="w3-container w3-center">
+        <form class="w3-container" action="{{ url_for('predict')}}" method="post">
+            <label for="url-input" class="w3-xlarge">Enter News Article URL</label>
+            <input class="w3-input w3-margin-top" id="url-input" type="url" required="required" name="url">
+            <button type="submit" class="w3-margin-top">Check for Fake News</button>
+        </form>
+        <br>
+        <br>
+        <p class="w3-xxlarge w3-animate-bottom">{{ prediction_text }}</p>
+    </div>
+</div>
+
+</body>
+</html>
